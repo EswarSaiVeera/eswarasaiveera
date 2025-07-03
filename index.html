@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eswara Sai Veera - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .section-title {
+            @apply text-3xl font-bold text-gray-800 mb-8 text-center;
+        }
+        .card {
+            @apply bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
+        }
+        /* For the typing effect */
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.75rem; /* Match text size */
+            background-color: #a78bfa; /* A light purple */
+            animation: blink 1s infinite;
+            margin-left: 4px;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* For scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        #hero-content {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-700">
+
+    <header class="bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800">Eswara Sai Veera</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#about" class="text-gray-600 hover:text-indigo-600 transition duration-300">About</a>
+                <a href="#skills" class="text-gray-600 hover:text-indigo-600 transition duration-300">Skills</a>
+                <a href="#projects" class="text-gray-600 hover:text-indigo-600 transition duration-300">Projects</a>
+                <a href="#experience" class="text-gray-600 hover:text-indigo-600 transition duration-300">Experience</a>
+                <a href="#contact" class="bg-indigo-600 text-white py-2 px-4 rounded-full hover:bg-indigo-700 transition duration-300">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 text-gray-600 hover:text-indigo-600">About</a>
+            <a href="#skills" class="block py-2 text-gray-600 hover:text-indigo-600">Skills</a>
+            <a href="#projects" class="block py-2 text-gray-600 hover:text-indigo-600">Projects</a>
+            <a href="#experience" class="block py-2 text-gray-600 hover:text-indigo-600">Experience</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-indigo-600">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="relative bg-gradient-to-br from-indigo-700 to-purple-800 text-white py-24 md:py-40 overflow-hidden">
+            <canvas id="hero-canvas"></canvas>
+            <div id="hero-content" class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 reveal">Eswara Sai Veera</h1>
+                <p class="text-lg md:text-2xl text-indigo-200 mb-8 max-w-3xl mx-auto reveal" style="transition-delay: 200ms;">
+                    An aspiring <span id="typing-text"></span><span class="typing-cursor"></span>
+                </p>
+                <div class="flex justify-center items-center flex-wrap gap-4">
+                    <a href="#projects" class="bg-white text-indigo-600 font-bold py-3 px-8 rounded-full hover:bg-indigo-100 transition duration-300 text-lg reveal" style="transition-delay: 400ms;">View My Work</a>
+                    <a href="./eswara_sai_veera_resume.pdf" download="Eswara_Sai_Veera_Resume.pdf" class="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-indigo-700 transition duration-300 text-lg reveal inline-flex items-center" style="transition-delay: 500ms;">
+                        <i class="fas fa-download mr-2"></i>Resume
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20">
+            <div class="container mx-auto px-6">
+                <h1 class="section-title reveal"><b>About Me</b></h1>
+                <div class="max-w-4xl mx-auto text-center text-lg">
+                    <p class="mb-10 reveal">I am a dedicated and ambitious Computer Science graduate seeking an entry-level software engineering role. My goal is to leverage my skills in Python, Java, and SQL to contribute to impactful projects and grow within a dynamic company. I have a strong interest in developing innovative solutions in web development and artificial intelligence.</p>
+                    <div class="bg-white p-8 rounded-xl shadow-md reveal">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Education</h3>
+                        <div class="space-y-6 text-left">
+                            <div class="reveal">
+                                <p class="font-semibold text-indigo-600">B.Tech, Computer Science Engineering</p>
+                                <p>RGUKT, Nuzvid (2021-2025)</p>
+                                <p class="text-sm text-gray-500">CGPA: 8.53</p>
+                            </div>
+                            <div class="reveal" style="transition-delay: 100ms;">
+                                <p class="font-semibold text-indigo-600">Pre University Course</p>
+                                <p>RGUKT, Nuzvid (2019-2021)</p>
+                                <p class="text-sm text-gray-500">CGPA: 9.37</p>
+                            </div>
+                            <div class="reveal" style="transition-delay: 200ms;">
+                                <p class="font-semibold text-indigo-600">Class 10th</p>
+                                <p>ZPPH School, Valluru (2018-2019)</p>
+                                <p class="text-sm text-gray-500">CGPA: 10.0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="bg-gray-100 py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title reveal"><b>Technical Skills</b></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center reveal">
+                        <i class="fas fa-code text-4xl text-indigo-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Languages</h3>
+                        <p>Python, Java, SQL, Solidity (Basics)</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center reveal" style="transition-delay: 100ms;">
+                        <i class="fas fa-database text-4xl text-indigo-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Databases</h3>
+                        <p>MySQL</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center reveal" style="transition-delay: 200ms;">
+                        <i class="fas fa-desktop text-4xl text-indigo-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Web Tech</h3>
+                        <p>HTML, CSS, JavaScript (Basics)</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center reveal" style="transition-delay: 300ms;">
+                        <i class="fas fa-tools text-4xl text-indigo-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Tools</h3>
+                        <p>Git, GitHub, AWS (Basics)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title reveal"><b>Projects</b></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    <div class="card reveal">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-800">CertiFier</h3>
+                            <p class="text-sm text-gray-500 mb-2">Feb 2024 - May 2024</p>
+                            <p class="mb-4">A decentralized NFT Marketplace built with Solidity and React. Developed secure smart contracts for minting NFTs and deployed the application using Hardhat.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Solidity</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">React</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Hardhat</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card reveal" style="transition-delay: 100ms;">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-800">Time Table Manager</h3>
+                                <p class="text-sm text-gray-500 mb-2">2023</p>
+                            <p class="mb-4">A web application that allows faculty to view students' free time slots for scheduling extra classes, improving academic planning with a clear interface.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">HTML</span>
+                                <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">CSS</span>
+                                <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card reveal" style="transition-delay: 200ms;">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-800">Student Stress & Health Prediction</h3>
+                            <p class="text-sm text-gray-500 mb-2">Target: April 2025</p>
+                            <p class="mb-4">Predicting student stress levels and health risks using Machine Learning (SVMs, Random Forests) to suggest measures for reduction.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Machine Learning</span>
+                                <span class="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">SVM</span>
+                                <span class="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Random Forest</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="https://github.com/EswarSaiVeera" target="_blank" rel="noopener noreferrer" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-full hover:bg-indigo-700 transition duration-300 text-lg inline-flex items-center reveal">
+                        <i class="fab fa-github mr-3"></i> View My GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="bg-gray-100 py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title reveal"><b>Internship Experience</b></h2>
+                <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg reveal">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-full">
+                                <i class="fas fa-briefcase text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-2xl font-bold text-gray-800">Data Engineer</h3>
+                            <p class="font-semibold text-gray-600">Edubot, Vijayawada, AP</p>
+                            <p class="text-sm text-gray-500 mb-4">May 2024 - June 2024</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Developed a console-based application using Python and PostgreSQL.</li>
+                                <li>Participated actively in code reviews to ensure code quality and collaboration.</li>
+                                <li>Gained hands-on experience with version control using Git.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title reveal"><b>Certifications</b></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    <div class="card reveal">
+                        <div class="p-6">
+                            <img src="supLe.png" alt="Certificate 1" class="mb-4 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                            <h3 class="text-lg font-semibold text-center">Supervised Machine Learning: Regression and Classification</h3>
+                        </div>
+                    </div>
+                    <div class="card reveal" style="transition-delay: 100ms;">
+                        <div class="p-6">
+                            <img src="advAlg.png" alt="Certificate 2" class="mb-4 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                            <h3 class="text-lg font-semibold text-center">Advanced Learning Algorithms</h3>
+                        </div>
+                    </div>
+                    <div class="card reveal" style="transition-delay: 200ms;">
+                        <div class="p-6">
+                            <img src="unsup.png" alt="Certificate 3" class="mb-4 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                            <h3 class="text-lg font-semibold text-center">Unsupervised Learning, Recommenders, Reinforcement Learning</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="bg-gradient-to-br from-indigo-800 to-purple-900 text-white py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4 reveal">Get In Touch</h2>
+                <p class="mb-8 max-w-xl mx-auto reveal">I'm currently looking for new opportunities. Feel free to reach out if you have a question or just want to connect.</p>
+                <a href="./eswara_sai_veera_resume.pdf" download="Eswara_Sai_Veera_Resume.pdf" class="bg-white text-indigo-600 font-bold py-3 px-8 rounded-full hover:bg-indigo-100 transition duration-300 text-lg inline-flex items-center reveal mb-8">
+                    <i class="fas fa-download mr-3"></i> Download Resume
+                </a>
+                <div class="flex justify-center space-x-6 reveal">
+                    <a href="mailto:eswarsaiveera@gmail.com" class="text-4xl hover:text-indigo-200 transition duration-300 transform hover:scale-110">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/eswara-sai-veera-66a121236" target="_blank" rel="noopener noreferrer" class="text-4xl hover:text-indigo-200 transition duration-300 transform hover:scale-110">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-4xl hover:text-indigo-200 transition duration-300 transform hover:scale-110">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Eswara Sai Veera. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <button id="to-top-button" title="Go To Top" class="hidden fixed z-50 bottom-10 right-10 p-4 border-0 w-14 h-14 rounded-full shadow-md bg-indigo-600 hover:bg-indigo-700 text-white text-lg font-semibold transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobile menu toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- Smooth scrolling for navigation links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // --- Typing Animation ---
+            const typingText = document.getElementById('typing-text');
+            const words = ["Computer Science Graduate", "Web Developer", "AI & Machine Learning Enthusiast"];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function type() {
+                const currentWord = words[wordIndex];
+                if (isDeleting) {
+                    typingText.textContent = currentWord.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typingText.textContent = currentWord.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                if (!isDeleting && charIndex === currentWord.length) {
+                    setTimeout(() => isDeleting = true, 2000);
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                }
+
+                const typingSpeed = isDeleting ? 50 : 120;
+                setTimeout(type, typingSpeed);
+            }
+            type();
+
+            // --- Scroll Reveal Animation ---
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(el => observer.observe(el));
+
+            // --- Back to Top Button ---
+            const toTopButton = document.getElementById('to-top-button');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    toTopButton.classList.remove('hidden');
+                } else {
+                    toTopButton.classList.add('hidden');
+                }
+            });
+            toTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // --- Hero Canvas Particle Animation ---
+            const canvas = document.getElementById('hero-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+
+            let particlesArray;
+
+            const mouse = {
+                x: null,
+                y: null,
+                radius: (canvas.height / 120) * (canvas.width / 120)
+            };
+
+            window.addEventListener('mousemove', e => {
+                mouse.x = e.x;
+                mouse.y = e.y;
+            });
+
+            class Particle {
+                constructor(x, y, directionX, directionY, size, color) {
+                    this.x = x;
+                    this.y = y;
+                    this.directionX = directionX;
+                    this.directionY = directionY;
+                    this.size = size;
+                    this.color = color;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+                    ctx.fill();
+                }
+                update() {
+                    if (this.x > canvas.width || this.x < 0) {
+                        this.directionX = -this.directionX;
+                    }
+                    if (this.y > canvas.height || this.y < 0) {
+                        this.directionY = -this.directionY;
+                    }
+                    this.x += this.directionX;
+                    this.y += this.directionY;
+                    this.draw();
+                }
+            }
+
+            function init() {
+                particlesArray = [];
+                let numberOfParticles = (canvas.height * canvas.width) / 9000;
+                for (let i = 0; i < numberOfParticles; i++) {
+                    let size = (Math.random() * 2) + 1;
+                    let x = (Math.random() * ((canvas.width - size * 2) - (size * 2)) + size * 2);
+                    let y = (Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2);
+                    let directionX = (Math.random() * 0.4) - 0.2;
+                    let directionY = (Math.random() * 0.4) - 0.2;
+                    let color = 'white';
+                    particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+                }
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                }
+            }
+
+            init();
+            animate();
+
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = canvas.parentElement.offsetHeight;
+                mouse.radius = (canvas.height / 120) * (canvas.width / 120);
+                init();
+            });
+        });
+    </script>
+
+</body>
+
+</html>
